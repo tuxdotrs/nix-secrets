@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   ...
 }: let
@@ -40,7 +41,7 @@ in {
 
     services.nginx = {
       enable = lib.mkForce true;
-      package = config.pkgs.nginx.override {withStream = true;};
+      package = pkgs.nginx.override {withStream = true;};
       streamConfig =
         lib.concatMapStringsSep "\n" (server: ''
           server {
