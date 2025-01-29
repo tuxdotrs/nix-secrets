@@ -6,8 +6,6 @@
   };
 
   outputs = {nixpkgs, ...}: {
-    nixosModules.default = {
-      imports = [./modules/nixos/nginx-stream-proxy];
-    };
+    proxy-servers = import ./modules/nixos/proxy-servers;
   };
 }
